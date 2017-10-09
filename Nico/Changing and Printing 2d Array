@@ -1,0 +1,62 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <windows.h>
+
+#define wide 9
+#define hight 6
+
+char map[wide][hight];
+
+int rng(int possible)
+{
+    return possible = rand() % possible;
+}
+
+void doesThisWork()
+{
+    int x, y;
+    for(x=0; x<hight; x++)
+    {
+        for(y=0; y<wide; y++)
+        {
+            if(x == 0)
+                map[x][y] = '9';
+        }
+    }
+}
+
+void printMap()
+{
+    int x, y;
+    for(x=0; x<hight; x++)
+    {
+        for(y=0; y<wide; y++)
+        {
+            printf("%c", map[x][y]);
+        }
+        printf("\n");
+    }
+}
+
+/* MAP SECMENT END */
+
+void clearScr() /* CLEARS THE SCREEN */
+{
+    system("@cls||clear");
+}
+
+int main(void)
+{
+    while(1)
+    {
+        doesThisWork();
+        printMap();
+        Sleep(100);
+        clearScr();
+    }
+
+	return 0;
+}
+
